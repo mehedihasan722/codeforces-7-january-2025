@@ -1,7 +1,7 @@
 /*
  *       Author :   Mehedi Hasan 
- *       Created:   Tue 07.Jan.2025 10:29:45
- *       File   :   A_Profitable_Interest_Rate.cpp
+ *       Created:   Tue 07.Jan.2025 23:40:27
+ *       File   :   B_Buying_Lemonade.cpp
 */
 
 #include <bits/stdc++.h>
@@ -199,23 +199,30 @@ const int mod = 1e9 + 7;
 const ll INF = 1e14;
 const int mxN = 1e6 + 10;
 const int N = 1e3 + 10;
-int n,m;
+int n,k;
 
-void solve() {
-    int a, b;
-    read(a, b);
-    int result = max(0, min(a, 2 * a - b));
-    print(result);
+void solve() 
+{
+    read(n,k);
+    vt<int> a(n);
+    read(a);
+    sort(all(a));
+    ll sum = a[0] * n , cnt = 0;
+    while(sum < k) {
+        cnt += 1;
+        sum += (a[cnt] - a[cnt-1]) * (n - cnt);
+    }
+    print(cnt+k);
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int t;
+    int t=1;
     read(t);
-    while (t--) {
+    FOR(t) {
+        //write("Case #", i+1, ": ");
         solve();
     }
-    return 0;
 }
