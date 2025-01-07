@@ -199,12 +199,12 @@ const int mod = 1e9 + 7;
 const ll INF = 1e14;
 const int mxN = 1e6 + 10;
 const int N = 1e3 + 10;
-int n,k;
+ll n,k;
 
 void solve() 
 {
     read(n,k);
-    vt<int> a(n);
+    vt<ll> a(n);
     read(a);
     sort(all(a));
     ll sum = a[0] * n , cnt = 0;
